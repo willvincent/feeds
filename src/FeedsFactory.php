@@ -20,6 +20,9 @@ class FeedsFactory {
     $this->configure();
     $this->simplepie->set_feed_url($feed_url);
     $this->simplepie->init();
+    $this->simplepie->handle_content_type();
+
+    return $this->simplepie;
   }
 
   protected function configure() {

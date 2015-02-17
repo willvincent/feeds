@@ -1,6 +1,7 @@
 <?php
 
 return [
+
   /*
   |--------------------------------------------------------------------------
   | Cache Location
@@ -10,7 +11,7 @@ return [
   | most cases.
   |
   */
-  'cache.location' => storage_path() . '/feeds/cache',
+  'cache.location' => storage_path() . '/framework/cache',
 
   /*
   |--------------------------------------------------------------------------
@@ -30,5 +31,6 @@ return [
   |
   |
   */
-  'cache.disabled' => true,
+  'cache.disabled' => false,
+
 ];
