@@ -35,5 +35,5 @@ Find the `providers` key in your `config/app.php` and register the Service Provi
 See [SimplePie Documentation](http://simplepie.org/wiki/) for full API usage documentation.
 
 ```php
-$feed = $this->app->make('Feeds');
+$feed = App::make('Feeds');
 ```
