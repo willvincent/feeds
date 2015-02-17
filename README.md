@@ -45,29 +45,43 @@ Run `php artisan vendor:publish` to publish the default config file, edit cachin
 See [SimplePie Documentation](http://simplepie.org/wiki/) for full API usage documentation.
 
 ```php
-$feed = Feeds::make('http://feed/url/goes/here');
-
-/**
- * Some useful methods:
- */
-
-$feed->get_permalink(); // Perma-link for the feed
-
-$feed->get_title(); // Get the feed title
-
-$feed->get_description(); // Get the feed's description
-
-$feed->get_items(); // Get items from the feed.
+$feed = \Feeds::make('http://feed/url/goes/here');
 ```
 
+Note: Facades must either be prefixed with a backslash, or brought into scope by including a use [facadeName] declaration in laravel 5.
 
-If you were to pass `$feed->get_items()` to a view as `$items` you could iterate through them to build a list of articles like this:
+
+### Example controller method, and it's related view:
+
+Controller:
 ```php
-@foreach ($items as $item)
-  <div class="item">
-    <h2><a href="{{ $item->get_permalink() }}">{{ $item->get_title() }}</a></h2>
-    <p>{{ $item->get_description() }}</p>
-    <p><small>Posted on {{ $item->get_date('j F Y | g:i a') }}</small></p>
+  public function demo() {
+    $feed = \Feeds::make('http://blog.case.edu/news/feed.atom');
+    $data = array(
+      'title'     => $feed->get_title(),
+      'permalink' => $feed->get_permalink(),
+      'items'     => $feed->get_items(),
+    );
+
+    return View::make('feed', $data);
+  }
+```
+
+View:
+```php
+@extends('app')
+
+@section('content')
+  <div class="header">
+    <h1><a href="{{ $permalink }}">{{ $title }}</a></h1>
   </div>
-@endforeach
+
+  @foreach ($items as $item)
+    <div class="item">
+      <h2><a href="{{ $item->get_permalink() }}">{{ $item->get_title() }}</a></h2>
+      <p>{{ $item->get_description() }}</p>
+      <p><small>Posted on {{ $item->get_date('j F Y | g:i a') }}</small></p>
+    </div>
+  @endforeach
+@endsection
 ```
