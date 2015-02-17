@@ -48,7 +48,8 @@ See [SimplePie Documentation](http://simplepie.org/wiki/) for full API usage doc
 $feed = \Feeds::make('http://feed/url/goes/here');
 ```
 
-Note: Facades must either be prefixed with a backslash, or brought into scope by including a use [facadeName] declaration in laravel 5.
+
+###### Note: In Laravel 5, Facades must either be prefixed with a backslash, or brought into scope with a `use [facadeName]` declaration.
 
 
 ### Example controller method, and it's related view:
