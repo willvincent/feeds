@@ -1,6 +1,6 @@
 # Laravel 5 Feeds
 
-[![Latest Stable Version](https://poser.pugx.org/lucasromanojf/laravel5-pdf/v/stable.svg)](https://packagist.org/packages/lucasromanojf/laravel5-pdf) [![Total Downloads](https://poser.pugx.org/lucasromanojf/laravel5-pdf/downloads.svg)](https://packagist.org/packages/lucasromanojf/laravel5-pdf) [![Latest Unstable Version](https://poser.pugx.org/lucasromanojf/laravel5-pdf/v/unstable.svg)](https://packagist.org/packages/lucasromanojf/laravel5-pdf) [![License](https://poser.pugx.org/lucasromanojf/laravel5-pdf/license.svg)](https://packagist.org/packages/lucasromanojf/laravel5-pdf)
+[![Latest Stable Version](https://poser.pugx.org/willvincent/feeds/v/stable.svg)](https://packagist.org/packages/willvincent/feeds) [![Total Downloads](https://poser.pugx.org/willvincent/feeds/downloads.svg)](https://packagist.org/packages/willvincent/feeds) [![Latest Unstable Version](https://poser.pugx.org/willvincent/feeds/v/unstable.svg)](https://packagist.org/packages/willvincent/feeds) [![License](https://poser.pugx.org/willvincent/feeds/license.svg)](https://packagist.org/packages/willvincent/feeds)
 
 A simple [Laravel 5](http://www.laravel.com/) service provider for including the [SimplePie](http://www.simplepie.org) library.
 
