@@ -2,6 +2,7 @@
     "name": "willvincent/feeds",
     "description": "Laravel 5 Service Provider for the SimplePie library",
     "license": "MIT",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Will Vincent",
