@@ -1,4 +1,4 @@
-<?php namespace Willvincent\Feeds;
+<?php namespace willvincent\Feeds;
 
 use Illuminate\Support\ServiceProvider;
 use SimplePie;
