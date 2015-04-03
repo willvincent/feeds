@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 
-class Feeds extends Facade {
+class FeedsFacade extends Facade {
 
   protected static function getFacadeAccessor() {
     return 'Feeds';
