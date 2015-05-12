@@ -36,7 +36,7 @@ Find the `aliases` key in your `config/app.php` and register the Facade.
 ```php
     'aliases' => [
         // ...
-        'Feeds'    => 'willvincent\Feeds\Facades\Feeds',
+        'Feeds'    => 'willvincent\Feeds\Facades\FeedsFacade',
     ],
 ```
 
