@@ -1,5 +1,5 @@
 {
-    "name": "willvincent/feeds",
+    "name": "AhmedFwazy/feeds",
     "description": "Laravel 5 Service Provider for the SimplePie library",
     "license": "MIT",
     "authors": [
@@ -11,7 +11,7 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "~5.0",
-	"simplepie/simplepie": "1.3.*"
+		"simplepie/simplepie": "1.3.*"
     },
     "autoload": {
         "psr-4": {
