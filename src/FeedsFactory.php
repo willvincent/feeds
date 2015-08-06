@@ -19,6 +19,12 @@ class FeedsFactory {
     $this->simplepie = new SimplePie();
     $this->configure();
     $this->simplepie->set_feed_url($feed_url);
+	if ( ! $this->config['strip_html_tags.disabled'] && ! empty( $this->config['strip_html_tags.tags'] ) && is_array($this->config['strip_html_tags.tags'])) {
+//	'base', 'blink', 'body', 'doctype', 'embed', 'font', 'form', 'frame', 'frameset', 'html', 'iframe', 'input', 'marquee', 'meta', 'noscript', 'object', 'param', 'script', 'style'
+	   $this->simplepie->strip_htmltags( $this->config['strip_html_tags.tags'] );
+	}else{
+	   $this->simplepie->strip_htmltags( false );
+	}    
     $this->simplepie->init();
     $this->simplepie->handle_content_type();
 
