@@ -70,6 +70,21 @@ Controller:
   }
 ```
 
+or Force to read unless content type not a valid RSS
+
+```php
+  public function demo() {
+    $feed = \Feeds::make('http://blog.case.edu/news/feed.atom', true); // if RSS Feed has invalid mime types, force to read
+    $data = array(
+      'title'     => $feed->get_title(),
+      'permalink' => $feed->get_permalink(),
+      'items'     => $feed->get_items(),
+    );
+
+    return View::make('feed', $data);
+  }
+```
+
 View:
 ```php
 @extends('app')
