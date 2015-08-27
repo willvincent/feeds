@@ -28,7 +28,7 @@ Find the `providers` key in your `config/app.php` and register the Service Provi
 ```php
     'providers' => [
         // ...
-        'willvincent\Feeds\FeedsServiceProvider',
+        willvincent\Feeds\FeedsServiceProvider::class,
     ],
 ```
 
@@ -36,7 +36,7 @@ Find the `aliases` key in your `config/app.php` and register the Facade.
 ```php
     'aliases' => [
         // ...
-        'Feeds'    => 'willvincent\Feeds\Facades\FeedsFacade',
+        'Feeds'    => willvincent\Feeds\Facades\FeedsFacade::class,
     ],
 ```
 
@@ -47,7 +47,7 @@ Run `php artisan vendor:publish` to publish the default config file, edit cachin
 See [SimplePie Documentation](http://simplepie.org/wiki/) for full API usage documentation.
 
 ```php
-$feed = \Feeds::make('http://feed/url/goes/here');
+$feed = Feeds::make('http://feed/url/goes/here');
 ```
 
 
@@ -59,7 +59,7 @@ $feed = \Feeds::make('http://feed/url/goes/here');
 Controller:
 ```php
   public function demo() {
-    $feed = \Feeds::make('http://blog.case.edu/news/feed.atom');
+    $feed = Feeds::make('http://blog.case.edu/news/feed.atom');
     $data = array(
       'title'     => $feed->get_title(),
       'permalink' => $feed->get_permalink(),
@@ -74,7 +74,7 @@ or Force to read unless content type not a valid RSS
 
 ```php
   public function demo() {
-    $feed = \Feeds::make('http://blog.case.edu/news/feed.atom', true); // if RSS Feed has invalid mime types, force to read
+    $feed = Feeds::make('http://blog.case.edu/news/feed.atom', true); // if RSS Feed has invalid mime types, force to read
     $data = array(
       'title'     => $feed->get_title(),
       'permalink' => $feed->get_permalink(),
