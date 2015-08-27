@@ -15,10 +15,17 @@ class FeedsFactory {
     $this->config = $config;
   }
 
-  public function make($feed_url) {
+  /**
+   * @param $feed_url string RSS URL
+   * @param bool|false $force_feed
+   *
+   * @return SimplePie
+     */
+    public function make($feed_url, $force_feed = false) {
     $this->simplepie = new SimplePie();
     $this->configure();
     $this->simplepie->set_feed_url($feed_url);
+    if ( $force_feed === true ) $this->simplepie->force_feed(true);
     if ( ! $this->config['strip_html_tags.disabled'] && ! empty( $this->config['strip_html_tags.tags'] ) && is_array($this->config['strip_html_tags.tags'])) {
        $this->simplepie->strip_htmltags( $this->config['strip_html_tags.tags'] );
      }else{
