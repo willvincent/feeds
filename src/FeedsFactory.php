@@ -22,7 +22,7 @@ class FeedsFactory {
    *
    * @return SimplePie
      */
-    public function make($feed_url = [], $limit, $force_feed = false) {
+    public function make($feed_url = [], $limit = 0, $force_feed = false) {
     $this->simplepie = new SimplePie();
     $this->configure();
     $this->simplepie->set_feed_url($feed_url);
