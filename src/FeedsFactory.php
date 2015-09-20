@@ -16,15 +16,17 @@ class FeedsFactory {
   }
 
   /**
-   * @param $feed_url string RSS URL
+   * @param array $feed_url RSS URL
+   * @param int $limit items returned per-feed with multifeeds
    * @param bool|false $force_feed
    *
    * @return SimplePie
      */
-    public function make($feed_url, $force_feed = false) {
+    public function make($feed_url = [], $limit, $force_feed = false) {
     $this->simplepie = new SimplePie();
     $this->configure();
     $this->simplepie->set_feed_url($feed_url);
+    $this->simplepie->set_item_limit($limit);
     if ( $force_feed === true ) $this->simplepie->force_feed(true);
     if ( ! $this->config['strip_html_tags.disabled'] && ! empty( $this->config['strip_html_tags.tags'] ) && is_array($this->config['strip_html_tags.tags'])) {
        $this->simplepie->strip_htmltags( $this->config['strip_html_tags.tags'] );
