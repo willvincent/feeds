@@ -54,4 +54,25 @@ return [
   // 'base', 'blink', 'body', 'doctype', 'embed', 'font', 'form', 'frame', 'frameset', 'html', 'iframe', 'input', 'marquee', 'meta', 'noscript', 'object', 'param', 'script', 'style'
   'strip_html_tags.tags'=> [ 'base', 'blink', 'body', 'doctype', 'embed', 'font', 'form', 'frame', 'frameset', 'html', 'iframe', 'input', 'marquee', 'meta', 'noscript', 'object', 'param', 'script', 'style'],
 
+  /*
+  |--------------------------------------------------------------------------
+  | Strip Attributes Disabled
+  |--------------------------------------------------------------------------
+  |
+  |
+  |
+  */
+    'strip_attribute.disabled'=> false,
+
+  /*
+  |--------------------------------------------------------------------------
+  | Striped Attributes Tags
+  |--------------------------------------------------------------------------
+  |
+  |
+  |
+  */
+  // 'bgsound', 'class', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc'
+    'strip_attributes.tags'=> [ 'bgsound', 'class', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc'],
+
 ];

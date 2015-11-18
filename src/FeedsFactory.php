@@ -31,6 +31,11 @@ class FeedsFactory {
      }else{
        $this->simplepie->strip_htmltags( false );
     }
+    if ( ! $this->config['strip_attribute.disabled'] && ! empty( $this->config['strip_attribute.tags'] ) && is_array($this->config['strip_attribute.tags'])) {
+      $this->simplepie->strip_attributes( $this->config['strip_attribute.tags'] );
+    }else{
+      $this->simplepie->strip_attributes( false );
+    }
     $this->simplepie->init();
     $this->simplepie->handle_content_type();
 
