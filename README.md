@@ -46,6 +46,8 @@ Run `php artisan vendor:publish` to publish the default config file, edit cachin
 
 See [SimplePie Documentation](http://simplepie.org/wiki/) for full API usage documentation.
 
+The make() accepts 3 paramaters, the first parameter is an array of feed URLs, the second parameter is the max number of items to be returned per feed, and while the third parameter is a boolean which you can set to force to read unless content type not a valid RSS.
+
 ```php
 $feed = Feeds::make('http://feed/url/goes/here');
 ```
@@ -75,6 +77,42 @@ or Force to read unless content type not a valid RSS
 ```php
   public function demo() {
     $feed = Feeds::make('http://blog.case.edu/news/feed.atom', true); // if RSS Feed has invalid mime types, force to read
+    $data = array(
+      'title'     => $feed->get_title(),
+      'permalink' => $feed->get_permalink(),
+      'items'     => $feed->get_items(),
+    );
+
+    return View::make('feed', $data);
+  }
+```
+
+### Multifeeds example controller method, and it's related view:
+
+Controller:
+```php
+  public function demo() {
+    $feed = Feeds::make([
+        'http://blog.case.edu/news/feed.atom',
+        'http://tutorialslodge.com/feed'
+    ], 5);
+    $data = array(
+      'title'     => $feed->get_title(),
+      'permalink' => $feed->get_permalink(),
+      'items'     => $feed->get_items(),
+    );
+
+    return View::make('feed', $data);
+  }
+```
+
+or Force to read unless content type not a valid RSS
+
+```php
+  public function demo() {
+        $feed = Feeds::make(['http://blog.case.edu/news/feed.atom',
+        'http://tutorialslodge.com/feed'
+    ], 5, true); // if RSS Feed has invalid mime types, force to read
     $data = array(
       'title'     => $feed->get_title(),
       'permalink' => $feed->get_permalink(),
