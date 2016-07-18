@@ -42,7 +42,7 @@ Find the `aliases` key in your `config/app.php` and register the Facade.
 
 ## Usage
 
-Run `php artisan vendor:publish` to publish the default config file, edit caching setting withing the resulting `config/feeds.php` file as desired.
+Run `php artisan vendor:publish --provider="willvincent\Feeds\FeedsServiceProvider"` to publish the default config file, edit caching setting withing the resulting `config/feeds.php` file as desired.
 
 See [SimplePie Documentation](http://simplepie.org/wiki/) for full API usage documentation.
 
