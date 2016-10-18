@@ -14,7 +14,7 @@ The Laravel 5 Feeds Service Provider can be installed via [Composer](http://getc
 ```json
 {
     "require": {
-        "willvincent/feeds": "1.0.*"
+        "willvincent/feeds": "1.1.*"
     }
 }
 ```
