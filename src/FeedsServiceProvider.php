@@ -24,14 +24,14 @@ class FeedsServiceProvider extends ServiceProvider {
    * @return void
    */
   public function register() {
-    $this->app['Feeds'] = $this->app->share(function($app) {
-      $config = config('feeds');
+    $this->app->singleton('Feeds', function($app) {
+        $config = config('feeds');
 
-      if (!$config) {
-        throw new \RunTimeException('Feeds configuration not found. Please run `php artisan vendor:publish`');
-      }
+        if (!$config) {
+            throw new \RunTimeException('Feeds configuration not found. Please run `php artisan vendor:publish`');
+        }
 
-      return new FeedsFactory($config);
+        return new FeedsFactory($config);
     });
   }
 
