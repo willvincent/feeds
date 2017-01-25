@@ -24,7 +24,7 @@ class FeedsServiceProvider extends ServiceProvider {
    * @return void
    */
   public function register() {
-    $this->app['Feeds'] = $this->app->share(function($app) {
+    $this->app->singleton('Feeds', function($app) {
       $config = config('feeds');
 
       if (!$config) {
