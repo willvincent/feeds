@@ -32,7 +32,15 @@ return [
   |
   */
   'cache.disabled' => false,
-
+    /*
+  |--------------------------------------------------------------------------
+  | Disable Check for SSL certificates (enable for self signed certificates)
+  |--------------------------------------------------------------------------
+  |
+  |
+  |
+  */
+  'ssl_check.disabled' => false,
   /*
   |--------------------------------------------------------------------------
   | Strip Html Tags Disabled
