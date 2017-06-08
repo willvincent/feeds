@@ -57,7 +57,7 @@ class FeedsFactory
             $this->simplepie->set_cache_location($this->config['cache.location']);
             $this->simplepie->set_cache_duration($this->config['cache.life']);
         }
-        if ($this->config['ssl_check.disabled') {
+        if ($this->config['ssl_check.disabled']) {
             $this->simplepie->set_curl_options([
                 CURLOPT_SSL_VERIFYHOST => false,
                 CURLOPT_SSL_VERIFYPEER => false
