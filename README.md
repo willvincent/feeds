@@ -23,6 +23,8 @@ The Laravel 5 Feeds Service Provider can be installed via [Composer](http://getc
 
 ## Configuration
 
+> If you're using Laravel 5.5 you may skip the next step.
+
 To use the Feeds Service Provider, you must register the provider when bootstrapping your Laravel application.
 
 Find the `providers` key in your `config/app.php` and register the Service Provider.
