@@ -51,6 +51,7 @@ class FeedsFactory
 
     protected function configure()
     {
+        $curloptions = null;
         if ($this->config['cache.disabled']) {
             $this->simplepie->enable_cache(false);
         } else {
@@ -58,10 +59,18 @@ class FeedsFactory
             $this->simplepie->set_cache_duration($this->config['cache.life']);
         }
         if ($this->config['ssl_check.disabled']) {
-            $this->simplepie->set_curl_options([
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_SSL_VERIFYPEER => false
-            ]);
+            $curloptions[CURLOPT_SSL_VERIFYHOST] = false;
+            $curloptions[CURLOPT_SSL_VERIFYPEER] = false;
+        }
+        if (isset($this->config['proxy.host'])) {
+            $curloptions[CURLOPT_PROXY] = $this->config['proxy.host'];
+            $curloptions[CURLOPT_PROXYTYPE] = $this->config['proxy.type'];
+            if ($this->config['proxy.credentials'] != '') {
+                $curloptions[CURLOPT_PROXYUSERPWD] = $this->config['proxy.credentials'];
+            }
+        }
+        if (is_array($curloptions)) {
+            $this->simplepie->set_curl_options($curloptions);
         }
     }
 }

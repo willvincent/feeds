@@ -83,4 +83,35 @@ return [
   // 'bgsound', 'class', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc'
     'strip_attributes.tags'=> [ 'bgsound', 'class', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc'],
 
+  /*
+  |--------------------------------------------------------------------------
+  | Proxy Host
+  |--------------------------------------------------------------------------
+  |
+  | Name of proxy host, set to null to disable
+  |
+  */
+  'proxy.host' => null,
+
+  /*
+  |--------------------------------------------------------------------------
+  | Proxy Type
+  |--------------------------------------------------------------------------
+  |
+  | Type of proxy, see CURLOPT_PROXYTYPE
+  |
+  */
+  'proxy.type' => CURLPROXY_HTTP,
+
+  /*
+  |--------------------------------------------------------------------------
+  | Proxy Credentials
+  |--------------------------------------------------------------------------
+  |
+  | Optional username and password for proxy
+  | Format as 'username:password'
+  |
+  */
+  'proxy.credentials' => '',
+
 ];
