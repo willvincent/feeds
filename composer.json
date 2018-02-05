@@ -1,5 +1,5 @@
 {
-    "name": "willvincent/feeds",
+    "name": "peeto/feeds",
     "description": "Laravel 5 Service Provider for the SimplePie library",
     "license": "MIT",
     "authors": [
