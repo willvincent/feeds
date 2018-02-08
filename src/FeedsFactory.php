@@ -33,11 +33,6 @@ class FeedsFactory
         if ($force_feed === true) {
             $this->simplepie->force_feed(true);
         }
-        if (isset($options) && is_array($options)) {
-            if (isset($options['curl.options']) && is_array($options['curl.options'])) {
-                $this->simplepie->set_curl_options($this->simplepie->curl_options + $options['curl.options']);
-            }
-        }
         if (!$this->config['strip_html_tags.disabled'] && !empty($this->config['strip_html_tags.tags']) && is_array($this->config['strip_html_tags.tags'])) {
             $this->simplepie->strip_htmltags($this->config['strip_html_tags.tags']);
         } else {
@@ -47,6 +42,17 @@ class FeedsFactory
             $this->simplepie->strip_attributes($this->config['strip_attribute.tags']);
         } else {
             $this->simplepie->strip_attributes(false);
+        }
+        if (isset($options) && is_array($options)) {
+            if (isset($options['curl.options']) && is_array($options['curl.options'])) {
+                $this->simplepie->set_curl_options($this->simplepie->curl_options + $options['curl.options']);
+            }
+            if (isset($options['strip_html_tags.tags']) && is_array($options['strip_html_tags.tags'])) {
+                $this->simplepie->strip_htmltags($options['strip_html_tags.tags']);
+            }
+            if (isset($options['strip_attribute.tags']) && is_array($options['strip_attribute.tags'])) {
+                $this->simplepie->strip_attributes($options['strip_attribute.tags']);
+            }
         }
         $this->simplepie->init();
         $this->simplepie->handle_content_type();
