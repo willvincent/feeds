@@ -85,33 +85,13 @@ return [
 
   /*
   |--------------------------------------------------------------------------
-  | Proxy Host
+  | CURL Options
   |--------------------------------------------------------------------------
   |
-  | Name of proxy host, set to null to disable
+  | Array of CURL options (see curl_setopt())
+  | Set to null to disable
   |
   */
-  'proxy.host' => null,
-
-  /*
-  |--------------------------------------------------------------------------
-  | Proxy Type
-  |--------------------------------------------------------------------------
-  |
-  | Type of proxy, see CURLOPT_PROXYTYPE
-  |
-  */
-  'proxy.type' => CURLPROXY_HTTP,
-
-  /*
-  |--------------------------------------------------------------------------
-  | Proxy Credentials
-  |--------------------------------------------------------------------------
-  |
-  | Optional username and password for proxy
-  | Format as 'username:password'
-  |
-  */
-  'proxy.credentials' => '',
+  'curl.options' => null,
 
 ];

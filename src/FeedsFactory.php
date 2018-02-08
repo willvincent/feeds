@@ -24,7 +24,7 @@ class FeedsFactory
      *
      * @return SimplePie
      */
-    public function make($feed_url = [], $limit = 0, $force_feed = false)
+    public function make($feed_url = [], $limit = 0, $force_feed = false, $options = null)
     {
         $this->simplepie = new SimplePie();
         $this->configure();
@@ -32,6 +32,11 @@ class FeedsFactory
         $this->simplepie->set_item_limit($limit);
         if ($force_feed === true) {
             $this->simplepie->force_feed(true);
+        }
+        if (isset($options) && is_array($options)) {
+            if (isset($options['curl.options']) && is_array($options['curl.options'])) {
+                $this->simplepie->set_curl_options($this->simplepie->curl_options + $options['curl.options']);
+            }
         }
         if (!$this->config['strip_html_tags.disabled'] && !empty($this->config['strip_html_tags.tags']) && is_array($this->config['strip_html_tags.tags'])) {
             $this->simplepie->strip_htmltags($this->config['strip_html_tags.tags']);
@@ -58,16 +63,12 @@ class FeedsFactory
             $this->simplepie->set_cache_location($this->config['cache.location']);
             $this->simplepie->set_cache_duration($this->config['cache.life']);
         }
+        if (isset($this->config['curl.options']) && is_array($this->config['curl.options'])) {
+            $curloptions[] = $this->config['curl.options'];
+        }
         if ($this->config['ssl_check.disabled']) {
             $curloptions[CURLOPT_SSL_VERIFYHOST] = false;
             $curloptions[CURLOPT_SSL_VERIFYPEER] = false;
-        }
-        if (isset($this->config['proxy.host'])) {
-            $curloptions[CURLOPT_PROXY] = $this->config['proxy.host'];
-            $curloptions[CURLOPT_PROXYTYPE] = $this->config['proxy.type'];
-            if ($this->config['proxy.credentials'] != '') {
-                $curloptions[CURLOPT_PROXYUSERPWD] = $this->config['proxy.credentials'];
-            }
         }
         if (is_array($curloptions)) {
             $this->simplepie->set_curl_options($curloptions);
