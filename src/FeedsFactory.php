@@ -24,7 +24,7 @@ class FeedsFactory
      *
      * @return SimplePie
      */
-    public function make($feed_url = [], $limit = 0, $force_feed = false)
+    public function make($feed_url = [], $limit = 0, $force_feed = false, $options = null)
     {
         $this->simplepie = new SimplePie();
         $this->configure();
@@ -43,6 +43,17 @@ class FeedsFactory
         } else {
             $this->simplepie->strip_attributes(false);
         }
+        if (isset($options) && is_array($options)) {
+            if (isset($options['curl.options']) && is_array($options['curl.options'])) {
+                $this->simplepie->set_curl_options($this->simplepie->curl_options + $options['curl.options']);
+            }
+            if (isset($options['strip_html_tags.tags']) && is_array($options['strip_html_tags.tags'])) {
+                $this->simplepie->strip_htmltags($options['strip_html_tags.tags']);
+            }
+            if (isset($options['strip_attribute.tags']) && is_array($options['strip_attribute.tags'])) {
+                $this->simplepie->strip_attributes($options['strip_attribute.tags']);
+            }
+        }
         $this->simplepie->init();
         $this->simplepie->handle_content_type();
 
@@ -51,17 +62,22 @@ class FeedsFactory
 
     protected function configure()
     {
+        $curloptions = null;
         if ($this->config['cache.disabled']) {
             $this->simplepie->enable_cache(false);
         } else {
             $this->simplepie->set_cache_location($this->config['cache.location']);
             $this->simplepie->set_cache_duration($this->config['cache.life']);
         }
+        if (isset($this->config['curl.options']) && is_array($this->config['curl.options'])) {
+            $curloptions[] = $this->config['curl.options'];
+        }
         if ($this->config['ssl_check.disabled']) {
-            $this->simplepie->set_curl_options([
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_SSL_VERIFYPEER => false
-            ]);
+            $curloptions[CURLOPT_SSL_VERIFYHOST] = false;
+            $curloptions[CURLOPT_SSL_VERIFYPEER] = false;
+        }
+        if (is_array($curloptions)) {
+            $this->simplepie->set_curl_options($curloptions);
         }
     }
 }
