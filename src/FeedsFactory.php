@@ -70,7 +70,7 @@ class FeedsFactory
             $this->simplepie->set_cache_duration($this->config['cache.life']);
         }
         if (isset($this->config['curl.options']) && is_array($this->config['curl.options'])) {
-            $curloptions[] = $this->config['curl.options'];
+            $curloptions += $this->config['curl.options'];
         }
         if ($this->config['ssl_check.disabled']) {
             $curloptions[CURLOPT_SSL_VERIFYHOST] = false;
