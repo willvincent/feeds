@@ -62,7 +62,7 @@ class FeedsFactory
 
     protected function configure()
     {
-        $curloptions = null;
+        $curloptions = [];
         if ($this->config['cache.disabled']) {
             $this->simplepie->enable_cache(false);
         } else {
