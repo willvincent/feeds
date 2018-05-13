@@ -55,7 +55,6 @@ class FeedsFactory
             }
         }
         $this->simplepie->init();
-        $this->simplepie->handle_content_type();
 
         return $this->simplepie;
     }
