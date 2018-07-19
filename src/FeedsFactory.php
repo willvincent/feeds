@@ -43,6 +43,9 @@ class FeedsFactory
         } else {
             $this->simplepie->strip_attributes(false);
         }
+        if (isset($this->config['curl.timeout']) && is_int($this->config['curl.timeout'])) {
+            $this->simplepie->set_timeout($this->config['curl.timeout']);
+        }
         if (isset($options) && is_array($options)) {
             if (isset($options['curl.options']) && is_array($options['curl.options'])) {
                 $this->simplepie->set_curl_options($this->simplepie->curl_options + $options['curl.options']);
@@ -52,6 +55,9 @@ class FeedsFactory
             }
             if (isset($options['strip_attribute.tags']) && is_array($options['strip_attribute.tags'])) {
                 $this->simplepie->strip_attributes($options['strip_attribute.tags']);
+            }
+            if (isset($options['curl.timeout']) && is_int($options['curl.timeout'])) {
+                $this->simplepie->set_timeout($options['curl.timeout']);
             }
         }
         $this->simplepie->init();

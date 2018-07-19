@@ -93,5 +93,7 @@ return [
   |
   */
   'curl.options' => null,
+  
+  'curl.timeout' => null,
 
 ];
