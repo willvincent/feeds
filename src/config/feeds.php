@@ -42,6 +42,7 @@ return [
     |
     */
     'ssl_check.disabled'       => false,
+
     /*
     |--------------------------------------------------------------------------
     | Strip Html Tags Disabled
