@@ -1,7 +1,7 @@
 <?php namespace willvincent\Feeds;
 
 use Illuminate\Support\Arr;
-use simplePie;
+use SimplePie;
 
 class FeedsFactory
 {
@@ -36,7 +36,7 @@ class FeedsFactory
      */
     public function make($feedUrl = [], $limit = 0, $forceFeed = false, $options = null)
     {
-        $this->simplePie = new simplePie();
+        $this->simplePie = new SimplePie();
         $this->configure();
         $this->simplePie->set_feed_url($feedUrl);
         $this->simplePie->set_item_limit($limit);
