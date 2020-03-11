@@ -1,4 +1,4 @@
-# Laravel 5 Feeds
+# Laravel Feeds
 
 [![Latest Stable Version](https://poser.pugx.org/willvincent/feeds/v/stable.svg)](https://packagist.org/packages/willvincent/feeds)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/9098208d-abd1-44ea-af47-a0c42a01cb75.svg?style=flat-square)](https://insight.sensiolabs.com/projects/9098208d-abd1-44ea-af47-a0c42a01cb75)
@@ -6,11 +6,11 @@
 
 [![Total Downloads](https://poser.pugx.org/willvincent/feeds/downloads.svg)](https://packagist.org/packages/willvincent/feeds) [![Monthly Downloads](https://poser.pugx.org/willvincent/feeds/d/monthly.png)](https://packagist.org/packages/willvincent/feeds) [![Daily Downloads](https://poser.pugx.org/willvincent/feeds/d/daily.png)](https://packagist.org/packages/willvincent/feeds)
 
-A simple [Laravel 5](http://www.laravel.com/) service provider for including the [SimplePie](http://www.simplepie.org) library.
+A simple [Laravel 5/6/7](http://www.laravel.com/) service provider for including the [SimplePie](http://www.simplepie.org) library.
 
 ## Installation
 
-The Laravel 5 Feeds Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
+The Laravel 5/6/7 Feeds Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
 `willvincent/feeds` package in your project's `composer.json`.
 
 ```json
@@ -23,7 +23,7 @@ The Laravel 5 Feeds Service Provider can be installed via [Composer](http://getc
 
 ## Configuration
 
-> If you're using Laravel 5.5 you may skip the next step.
+> If you're using Laravel 5.5 or newer you may skip the next step.
 
 To use the Feeds Service Provider, you must register the provider when bootstrapping your Laravel application.
 
@@ -57,7 +57,7 @@ $feed = Feeds::make('http://feed/url/goes/here');
 ```
 
 
-###### Note: In Laravel 5, Facades must either be prefixed with a backslash, or brought into scope with a `use [facadeName]` declaration.
+###### Note: In Laravel 5 and newer, Facades must either be prefixed with a backslash, or brought into scope with a `use [facadeName]` declaration.
 
 
 ### Example controller method, and it's related view:
