@@ -84,7 +84,7 @@ return [
     |
     |
     */
-    'strip_attributes.tags'    => [
+    'strip_attribute.tags'    => [
         'bgsound', 'class', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout',
         'onfocus', 'onblur', 'lowsrc', 'dynsrc',
     ],
