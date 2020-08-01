@@ -53,7 +53,7 @@ See [SimplePie Documentation](http://simplepie.org/wiki/) for full API usage doc
 The make() accepts 3 paramaters, the first parameter is an array of feed URLs, the second parameter is the max number of items to be returned per feed, and while the third parameter is a boolean which you can set to force to read unless content type not a valid RSS.
 
 ```php
-$feed = Feeds::make('http://feed/url/goes/here');
+$feed = \Feeds::make('http://feed/url/goes/here');
 ```
 
 
@@ -65,7 +65,7 @@ $feed = Feeds::make('http://feed/url/goes/here');
 Controller:
 ```php
   public function demo() {
-    $feed = Feeds::make('http://blog.case.edu/news/feed.atom');
+    $feed = \Feeds::make('http://blog.case.edu/news/feed.atom');
     $data = array(
       'title'     => $feed->get_title(),
       'permalink' => $feed->get_permalink(),
@@ -80,7 +80,7 @@ or Force to read unless content type not a valid RSS
 
 ```php
   public function demo() {
-    $feed = Feeds::make('http://blog.case.edu/news/feed.atom', true); // if RSS Feed has invalid mime types, force to read
+    $feed = \Feeds::make('http://blog.case.edu/news/feed.atom', true); // if RSS Feed has invalid mime types, force to read
     $data = array(
       'title'     => $feed->get_title(),
       'permalink' => $feed->get_permalink(),
@@ -96,7 +96,7 @@ or Force to read unless content type not a valid RSS
 Controller:
 ```php
   public function demo() {
-    $feed = Feeds::make([
+    $feed = \Feeds::make([
         'http://blog.case.edu/news/feed.atom',
         'http://tutorialslodge.com/feed'
     ], 5);
@@ -114,7 +114,7 @@ or Force to read unless content type not a valid RSS
 
 ```php
   public function demo() {
-        $feed = Feeds::make(['http://blog.case.edu/news/feed.atom',
+        $feed = \Feeds::make(['http://blog.case.edu/news/feed.atom',
         'http://tutorialslodge.com/feed'
     ], 5, true); // if RSS Feed has invalid mime types, force to read
     $data = array(
