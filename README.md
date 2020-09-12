@@ -6,7 +6,7 @@
 
 [![Total Downloads](https://poser.pugx.org/willvincent/feeds/downloads.svg)](https://packagist.org/packages/willvincent/feeds) [![Monthly Downloads](https://poser.pugx.org/willvincent/feeds/d/monthly.png)](https://packagist.org/packages/willvincent/feeds) [![Daily Downloads](https://poser.pugx.org/willvincent/feeds/d/daily.png)](https://packagist.org/packages/willvincent/feeds)
 
-A simple [Laravel 5/6/7](http://www.laravel.com/) service provider for including the [SimplePie](http://www.simplepie.org) library.
+A simple [Laravel 5/6/7/8](http://www.laravel.com/) service provider for including the [SimplePie](http://www.simplepie.org) library.
 
 ## Installation
 
