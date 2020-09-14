@@ -10,7 +10,7 @@ A simple [Laravel 5/6/7](http://www.laravel.com/) service provider for including
 
 ## Installation
 
-The Laravel 5/6/7 Feeds Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
+The Laravel 5/6/7/8 Feeds Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
 `willvincent/feeds` package in your project's `composer.json`.
 
 ```json
