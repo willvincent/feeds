@@ -30,7 +30,7 @@ class FeedsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Feeds', function () {
+        $this->app->singleton(FeedsFactory::class, function () {
             $config = config('feeds');
 
             if (! $config) {
@@ -39,6 +39,7 @@ class FeedsServiceProvider extends ServiceProvider
 
             return new FeedsFactory($config);
         });
+        $this->app->alias(FeedsFactory::class, 'Feeds');
     }
 
     /**
