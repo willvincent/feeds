@@ -102,6 +102,10 @@ class FeedsFactory
             $this->simplePie->set_cache_duration($this->config['cache.life']);
         }
 
+	    if (isset($this->config['user_agent']) && !empty($this->config['user_agent'])) {
+		    $this->simplePie->set_useragent($this->config['user_agent']);
+	    }
+
         if (isset($this->config['curl.options']) && is_array($this->config['curl.options'])) {
             $curlOptions += $this->config['curl.options'];
         }
