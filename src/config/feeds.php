@@ -102,4 +102,16 @@ return [
 
     'curl.timeout' => null,
 
+	/*
+	|--------------------------------------------------------------------------
+	| Custom User Agent
+	|--------------------------------------------------------------------------
+	|
+	| Some servers block or filter request using user agent rule, this config
+	| will help to pass it by providing custom user agent string.
+	| Set to null to use default
+	|
+	*/
+	'user_agent' => null,
+
 ];
